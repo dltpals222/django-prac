@@ -31,10 +31,10 @@ document.addEventListener("DOMContentLoaded", () => {
   const umInfo = document.getElementById("um-info");
   umInfo.addEventListener("click", async () => {
     //* 정보
-    await fetchModule("/pages/userInfo", "user-info");
+    await fetchModule("/polls/userInfo", "user-info");
 
     //* 유저정보 입력
-    await fetchModule("/pages/create", "create-div");
+    // await fetchModule("/polls/create", "create-div");
   });
 
   document.body.addEventListener("click", async (e) => {
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("info-update 버튼이 클릭되었습니다.");
 
       //* 유저정보 수정
-      await fetchModule("/pages/update?noList=" + checkedValues.join(","), "update-div");
+      // await fetchModule("/polls/update?noList=" + checkedValues.join(","), "update-div");
 
       handleUpdateButtonClick(checkedValues);
 
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("checkbox: " + checkedValues);
 
       //* 유저정보 삭제
-      await fetchModule("/pages/delete?noList=" + checkedValues.join(","), "delete-div");
+      // await fetchModule("/polls/delete?noList=" + checkedValues.join(","), "delete-div");
 
       handleDeleteButtonClick(checkedValues);
 
