@@ -1,0 +1,87 @@
+<div id="user-management">
+  <div class="user-management">
+    <!--? Main nav -->
+    <div id="header-user-info" class="header-user-info-style">
+      <div class="user-info-font-style flex-center">회원정보</div>
+      <div id="info-container" class="info-container-style">
+        <button
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#create-modal"
+        >
+          추가 +
+        </button>
+        <button
+          id="info-update"
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#update-modal"
+        >
+          선택수정
+        </button>
+        <button
+          id="info-delete"
+          type="button"
+          class="btn btn-primary"
+          data-toggle="modal"
+          data-target="#delete-modal"
+        >
+          선택삭제
+        </button>
+        <select name="search" id="user-search" class="div-info flex-center search-style-hight-43">
+          <option value="name">이름으로 검색</option>
+          <option value="number">번호로 검색</option>
+          <option value="userId">아이디로 검색</option>
+        </select>
+        <div>
+          <input type="text" class="div-info flex-center search-style-hight-43" />
+        </div>
+      </div>
+    </div>
+
+    <!--? table -->
+    <div id="main-table" class="flex-justify-center-align-start width-height-100">
+      {% for ulList in ulList %}
+      <div id="t-{{ ulList }}">
+        <div class="flex-center">{{ulList.1}}</div>
+        
+        <ul class="ul-list-style-type" style="margin: 0">
+          {% for i in ""|rjust:"20" %} 
+          {% if ulList.0 == 'checkbox' %}
+          <li class="flex-center">
+            <input type="checkbox" name="noList" id="cb-{{ forloop.counter0 }}" value="{{ forloop.counter0 }}" />
+          </li>
+
+          {% elif ulList.0 == 'no' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% elif ulList.0 == 'name' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% elif ulList.0 == 'number' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% elif ulList.0 == 'nickname' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% elif ulList.0 == 'deposit' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% elif ulList.0 == 'score' %}
+          <li>{{forloop.counter0}}{{ulList.0}}</li>
+
+          {% endif %} 
+          {% endfor %} 
+
+          <!-- 20칸 채우기용 -->
+          <!-- 나중에 실제로 값이 들어올 때 수정할 것 -->
+
+        </ul>
+      </div>
+      {% endfor %}
+      
+    </div>
+  </div>
+</div>
