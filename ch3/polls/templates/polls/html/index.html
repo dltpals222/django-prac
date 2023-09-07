@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Python Django Practice</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}" />
+  </head>
+  <body>
+    <div id="root" class="root-style">
+      <div>
+        <div class="user-manager">회원관리</div>
+        <ul class="ul-list-style-type">
+          <li id="um-info" class="li-style">정보</li>
+          <li class="li-style">로그인정보</li>
+          <li class="li-style">추천인정보</li>
+          <li class="li-style">SNS보내기</li>
+        </ul>
+      </div>
+      <div id="user-info" style="width: 100%"></div>
+      <div id="create-div"></div>
+      <div id="update-div"></div>
+      <div id="delete-div"></div>
+    </div>
+  </body>
+</html>
