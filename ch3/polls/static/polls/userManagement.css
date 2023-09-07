@@ -1,0 +1,180 @@
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-justify-center-align-start {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.flex-direction-column {
+  flex-direction: column;
+}
+
+.flex-justify-end {
+  display: flex;
+  justify-content: end;
+}
+
+/*todo userManagement style */
+.user-management {
+  width: 100%;
+  height: fit-content;
+  min-width: 1000px;
+  min-height: 100vh;
+  background-color: rgb(235, 255, 255);
+}
+
+.header-user-info-style {
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: space-between;
+  padding: 1% 2% 2px 2%;
+}
+
+.info-container-style {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+}
+
+.info-container-style > button {
+  margin: 3px;
+}
+
+.div-info {
+  min-width: 100px;
+  min-height: 30px;
+  width: auto;
+  padding: 10px;
+  border: 1px solid black;
+  margin: 5px;
+  background-color: white;
+  border-radius: 5%;
+}
+
+.div-info-add-style {
+  background-color: #101010;
+  color: white;
+}
+
+.search-style-hight-43 {
+  height: 43px;
+  width: 140px;
+  min-width: 120px;
+}
+
+.user-info-font-style {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+
+/*todo main-table style */
+#main-table > div {
+  border: 1px solid black;
+}
+
+#main-table > div > div {
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  height: 1.75em;
+  font-size: 1.1em;
+}
+
+#main-table > div > ul > li {
+  border-bottom: 1px solid black;
+  height: 1.75em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+}
+
+#main-table > div > ul > li:first-child {
+  border-top: 1px solid black;
+}
+
+#main-table > div:first-child > ul > li {
+  padding: 0;
+}
+
+/* 체크박스 */
+#main-table > div:first-child {
+  border-left: 2px solid black;
+  width: 3%;
+}
+
+/* No */
+#main-table > div:nth-child(2) {
+  width: 7%;
+}
+
+/* 이름 */
+#main-table > div:nth-child(3) {
+  width: 16%;
+}
+
+/* 번호 */
+#main-table > div:nth-child(4) {
+  width: 11%;
+}
+
+/* 아이디 */
+#main-table > div:nth-child(5) {
+  width: 16%;
+}
+
+/* 총 입금액 */
+#main-table > div:nth-child(6) {
+  width: 26%;
+}
+
+/* 현스코어 */
+#main-table > div:last-child {
+  border-right: 2px solid black;
+  width: 16%;
+}
+
+/*! create css */
+
+/** input 부분 */
+.crtn-tagName > div {
+  border: 1px solid rgb(118, 118, 118);
+  height: 2em;
+}
+
+.modal-posotion {
+  left: -33%;
+  min-width: 150%;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/*todo update, delete css */
+.modal-read-style {
+  /* cursor를 default로 설정 */
+  cursor: default;
+
+  /* background-color를 원하는 값으로 변경 */
+  background-color: white;
+  border-width: 1px;
+  border-style: inset;
+
+  /* border-color를 원하는 값으로 변경 */
+  border-color: black;
+
+  /* 같은 크기로 설정 */
+  padding: 1px;
+}
