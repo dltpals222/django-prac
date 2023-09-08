@@ -32,3 +32,7 @@ def create(request):
 
 def update(request):
     return render(request, "polls/update.html", tag_data)
+
+
+def delete(request):
+    return render(request, "polls/delete.html", tag_data)
