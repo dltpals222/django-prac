@@ -23,4 +23,5 @@ urlpatterns = [
     path("polls/", views.index, name="index"),
     path("polls/userInfo/", views.userManagement, name="userManagement"),
     path("polls/create/", views.create, name="create"),
+    path("polls/update/", views.update, name="update"),
 ]
