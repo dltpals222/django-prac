@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("checkbox: " + checkedValues);
 
       //* 유저정보 삭제
-      // await fetchModule("/polls/delete?noList=" + checkedValues.join(","), "delete-div");
+      await fetchModule("/polls/delete", "delete-div");
 
       // handleDeleteButtonClick(checkedValues);
 
