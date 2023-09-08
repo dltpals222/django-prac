@@ -24,3 +24,7 @@ tag_data = {
 
 def userManagement(request):
     return render(request, "polls/userManagement.html", tag_data)
+
+
+def create(request):
+    return render(request, "polls/create.html", tag_data)
