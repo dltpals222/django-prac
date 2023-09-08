@@ -1,0 +1,56 @@
+<!--? Info_Create Modal -->
+<div
+  class="modal fade"
+  id="delete-modal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content width-50vw-important modal-posotion">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">정말 삭제하시겠습니까?</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="userDeleteForm">
+        <div class="modal-body">
+          <!--* 입력값 -->
+          <div class="flex-center flex-direction-column">
+            <div class="flex-center crtn-tagName" style="width: 100%">
+              {% for ulList in ulList %}
+                {% if forloop.counter0 >= 1 %}
+                <div class="flex-center flex-direction-column {% if ulList.0 == 'no' %}width-5percent {% elif ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-30percent {% else %}width-20percent {% endif %}">{{ulList.1}}</div>
+                {% endif %}
+              {% endfor %}
+            </div>
+            <!-- class="crtn-tagName" 끝부분 -->
+
+            <div class="width-100percent">
+                <div class="flex-center">
+                  {% for ulList in ulList %}
+                    {% if forloop.counter0 >= 1 %}
+                    <div 
+                      type="{% if ulList.0 == 'name' or ulList.0 == 'nickname' %}text{% else %}number{% endif %}"
+                      name="{{ulList.0}}"
+                      class="{% if ulList.0 == 'no' %}width-5percent modal-read-style flex-center{% elif ulList.0 == 'name' %}width-15percent modal-read-style flex-center{% elif ulList.0 == 'number' %}width-10percent modal-read-style flex-justify-end{% elif ulList.0 == 'deposit' %}width-30percent modal-read-style flex-justify-end{% elif ulList.0 == 'score' %}width-20percent modal-read-style flex-justify-end{% else %}width-20percent modal-read-style flex-center{% endif %}"
+                      >
+                      {{forloop.counter0}}
+                    </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+            </div>
+            <!-- id=ctnr-info 끝부분 -->
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+          <button type="submit" class="btn btn-primary">삭제하기</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
