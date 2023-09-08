@@ -1,0 +1,56 @@
+  <!--? Info_Create Modal -->
+  <div
+    class="modal fade"
+    id="create-modal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content width-50vw-important modal-posotion">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">정보 입력하기</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      <form action="/api/userInfo" method="post" id="addInfoForm" >
+        <div class="modal-body">                
+          <!--* 입력값 -->
+          <div class="flex-center flex-direction-column">
+            <div class="flex-center crtn-tagName" style="width: 100%;">
+              {% for ulList in ulList %}
+                {% if forloop.counter0 > 1 %}
+                    <div class="flex-center flex-direction-column {% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}">{{ulList.0}}</div>
+                {% endif %}
+              {% endfor %}
+            </div> <!-- class="crtn-tagName" 끝부분 -->
+
+            <div class="ctnr-input">
+              <!--* input 10번 반복 -->
+              {% for i in ""|rjust:"10" %}
+              <div id="info-{{forloop.counter0}}" class="flex-center">
+                  {% for ulList in ulList %}
+                    {% if forloop.counter0 > 1 %}
+                      <input 
+                        type="{% if ulList.0 == 'name' or ulList.0 == 'nickname' %}text{% else %}number{% endif %}"
+                        name="{{ulList.0}}"
+                        class="{% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}"
+                      >
+                    {% endif %}
+                  {% endfor %}
+                </div>
+              {% endfor %}
+            </div> <!-- id=ctnr-info 끝부분 -->
+
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+          <button onclick="submitUserInfo()" class="btn btn-primary">회원 정보에 추가하기</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
