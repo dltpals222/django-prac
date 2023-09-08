@@ -27,7 +27,7 @@
               {% endfor %}
             </div> <!-- class="crtn-tagName" 끝부분 -->
 
-            <div class="ctnr-input">
+            <div>
               <!--* input checkbox 반복 -->
               <div class="flex-center">
               {% for ulList in ulList %}
@@ -41,7 +41,7 @@
                       value="{% if ulList.0 == 'name' or ulList.0 == 'nickname' %}{{forloop.counter0}}-{{ulList.1}}{% else %}{{forloop.counter0}}{% endif %}"
                       >
                   {% endif %}
-                  {% endfor %}
+                {% endfor %}
                 </div>
             </div> <!-- id=ctnr-info 끝부분 -->
 
