@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
       console.log("info-update 버튼이 클릭되었습니다.");
 
       //* 유저정보 수정
-      // await fetchModule("/polls/update?noList=" + checkedValues.join(","), "update-div");
+      await fetchModule("/polls/update", "update-div");
 
-      handleUpdateButtonClick(checkedValues);
+      // handleUpdateButtonClick(checkedValues);
 
       // jQuery open modal
       $("#update-modal").modal("show");
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
       //* 유저정보 삭제
       // await fetchModule("/polls/delete?noList=" + checkedValues.join(","), "delete-div");
 
-      handleDeleteButtonClick(checkedValues);
+      // handleDeleteButtonClick(checkedValues);
 
       // jQuery open modal
       $("#delete-modal").modal("show");
