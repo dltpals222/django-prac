@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
     await fetchModule("/polls/userInfo", "user-info");
 
     //* 유저정보 입력
-    // await fetchModule("/polls/create", "create-div");
+    await fetchModule("/polls/create", "create-div");
   });
 
   document.body.addEventListener("click", async (e) => {
