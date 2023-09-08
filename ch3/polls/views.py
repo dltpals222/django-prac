@@ -28,3 +28,7 @@ def userManagement(request):
 
 def create(request):
     return render(request, "polls/create.html", tag_data)
+
+
+def update(request):
+    return render(request, "polls/update.html", tag_data)
