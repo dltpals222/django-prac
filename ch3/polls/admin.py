@@ -1,6 +1,6 @@
 from django.contrib import admin
-from polls.models import pracTable
+from polls.models import PracTable
 
 # Register your models here.
 
-admin.site.register(pracTable)
+admin.site.register(PracTable)
