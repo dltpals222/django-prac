@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", () => {
     //* 정보
     await fetchModule("/polls/userInfo", "user-info");
 
-    //* 유저정보 입력
-    await fetchModule("/polls/create", "create-div");
+    // // * 유저정보 입력
+    // await fetchModule("/polls/create", "create-div");
   });
 
   document.body.addEventListener("click", async (e) => {
@@ -91,6 +91,21 @@ document.addEventListener("DOMContentLoaded", () => {
       $("#delete-modal").on("hidden.bs.modal", function (e) {
         $(".modal-backdrop").remove();
         $("#delete-div").html("");
+      });
+    } else if (e.target.id === "info-create") {
+      e.preventDefault();
+
+      console.log("info-create 버튼이 클릭되었습니다.");
+
+      //* 유저정보 수정
+      await fetchModule("/polls/create", "create-div");
+
+      // jQuery open modal
+      $("#create-modal").modal("show");
+      // 종료 시 백드롭 제거 안되는 코드 제거
+      $("#create-modal").on("hidden.bs.modal", function (e) {
+        $(".modal-backdrop").remove();
+        $("#create-div").html("");
       });
     }
   });

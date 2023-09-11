@@ -35,19 +35,40 @@ def create(request):
     if request.method == "POST":
         form = MytableForm(request.POST)
         if form.is_valid():
-            prac_Table = form.save(commit=False)
-
             # 10개의 필드값 전부 가져오기
             field_values = []
             for i in range(10):
-                field_divName = f"field_{i}"
-                field_value = request.POST.get(field_divName, "")
-                field_values.append(field_value)
+                name = request.POST.get(f"name_{i}")
+                number = request.POST.get(f"number_{i}")
+                nickname = request.POST.get(f"nickname_{i}")
+                deposit = request.POST.get(f"deposit_{i}")
+                score = request.POST.get(f"score_{i}")
+                if (
+                    name != ""
+                    and number != ""
+                    and nickname != ""
+                    and deposit != ""
+                    and score != ""
+                ):
+                    obj = {
+                        "name": name,
+                        "number": number,
+                        "nickname": nickname,
+                        "deposit": deposit,
+                        "score": score,
+                    }
+                    field_values.append(obj)
 
-            # 비어있는 값이 있는지 확인 후 있으면 제거
-            filtered_values = [value for value in field_values if value != ""]
-
-            prac_Table.save()
+            # DB에 저장하기
+            for value in field_values:
+                entry = mytable(
+                    name=value["name"],
+                    number=int(value["number"]),
+                    nickname=value["nickname"],
+                    deposit=int(value["deposit"]),
+                    score=int(value["score"]),
+                )
+                entry.save()
 
             return HttpResponseRedirect("polls/create")
     else:
