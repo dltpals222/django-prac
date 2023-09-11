@@ -1,5 +1,5 @@
 from django import forms
-from .models import pracTable
+from .models import PracTable
 
 
 class PracTableForm(forms.ModelForm):
