@@ -15,7 +15,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-      <form action="{% url 'index' %}" method="post">
+      <form action="{% url 'index' %}" method="post" id="create-add">
         {% csrf_token %}
         <div class="modal-body">                
           <!--* 입력값 -->
@@ -36,7 +36,7 @@
                     {% if forloop.counter0 > 1 %}
                       <input 
                         type="{% if ulList.0 == 'name' or ulList.0 == 'nickname' %}text{% else %}number{% endif %}"
-                        name="{{ulList.0}}_{{item}}"
+                        name="{{ulList.0}}"
                         class="{% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}"
                       >
                     {% endif %}

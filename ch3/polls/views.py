@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
-from .models import PracTable
-from .forms import PracTableForm
+from django.http import HttpResponseRedirect, HttpResponse
+from .models import mytable
+from .forms import MytableForm
 
 # Create your views here.
 
@@ -33,18 +33,25 @@ def userManagement(request):
 
 def create(request):
     if request.method == "POST":
-        form = PracTableForm(request.POST)
+        form = MytableForm(request.POST)
         if form.is_valid():
-            PracTable = form.save(commit=False)
+            prac_Table = form.save(commit=False)
 
+            # 10개의 필드값 전부 가져오기
             field_values = []
             for i in range(10):
                 field_divName = f"field_{i}"
+                field_value = request.POST.get(field_divName, "")
+                field_values.append(field_value)
 
-            PracTable.save()
+            # 비어있는 값이 있는지 확인 후 있으면 제거
+            filtered_values = [value for value in field_values if value != ""]
+
+            prac_Table.save()
+
             return HttpResponseRedirect("polls/create")
     else:
-        form = PracTableForm()
+        form = MytableForm()
 
     return render(request, "polls/create.html", tag_data)
 

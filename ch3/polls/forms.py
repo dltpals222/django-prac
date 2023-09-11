@@ -1,8 +1,8 @@
 from django import forms
-from .models import PracTable
+from .models import mytable
 
 
-class PracTableForm(forms.ModelForm):
+class MytableForm(forms.ModelForm):
     class Meta:
-        model = PracTable
+        model = mytable
         fields = ["name", "number", "nickname", "deposit", "score"]
