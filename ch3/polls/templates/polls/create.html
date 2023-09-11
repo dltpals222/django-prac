@@ -15,7 +15,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-      <form action="{% url 'index' %}" method="post" id="addInfoForm" >
+      <form action="{% url 'index' %}" method="post">
         {% csrf_token %}
         <div class="modal-body">                
           <!--* 입력값 -->
@@ -30,13 +30,13 @@
 
             <div>
               <!--* input 10번 반복 -->
-              {% for i in ""|rjust:"10" %}
+              {% for item in list %}
               <div id="info-{{forloop.counter0}}" class="flex-center">
                   {% for ulList in ulList %}
                     {% if forloop.counter0 > 1 %}
                       <input 
                         type="{% if ulList.0 == 'name' or ulList.0 == 'nickname' %}text{% else %}number{% endif %}"
-                        name="{{ulList.0}}"
+                        name="{{ulList.0}}_{{item}}"
                         class="{% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}"
                       >
                     {% endif %}

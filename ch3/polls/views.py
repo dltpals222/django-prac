@@ -21,7 +21,10 @@ tag_data = {
         ["deposit", "총 입금액"],
         ["score", "현스코어"],
     ],
+    "list": [],
 }
+for i in range(10):
+    tag_data["list"].append(i)
 
 
 def userManagement(request):
@@ -33,12 +36,16 @@ def create(request):
         form = PracTableForm(request.POST)
         if form.is_valid():
             PracTable = form.save(commit=False)
-            logger = logging.getLogger(__name__)
-            logger.debug(PracTable.__dict__)
+
+            field_values = []
+            for i in range(10):
+                field_divName = f"field_{i}"
+
             PracTable.save()
             return HttpResponseRedirect("polls/create")
     else:
         form = PracTableForm()
+
     return render(request, "polls/create.html", tag_data)
 
 
