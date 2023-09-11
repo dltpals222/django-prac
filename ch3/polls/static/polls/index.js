@@ -6,23 +6,26 @@
  */
 async function fetchModule(endPoint, insertPageId, contentType = "text/html") {
   // fetch 데이터 처리
-  const response = await fetch(endPoint);
-  const result = await response.text();
-
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(result, contentType);
-
-  const targetElement = document.getElementById(insertPageId);
-
-  // 기존 targetElement가 있으면 제거 먼저 실행 후 새롭게 생성하는 로직
-  if (targetElement) {
-    while (targetElement.firstChild) {
-      targetElement.removeChild(targetElement.firstChild);
-    }
-
-    while (doc.body.firstChild) {
-      targetElement.appendChild(doc.body.firstChild);
-    }
+  try {
+    await fetch(endPoint)
+    .then(function(res) {return res.text()})
+    .then(function(result) {
+      const parser = new DOMParser();
+      const doc = parser.parseFromString(result, contentType);
+      const targetElement = document.getElementById(insertPageId);
+      // 기존 targetElement가 있으면 제거 먼저 실행 후 새롭게 생성하는 로직
+      if (targetElement) {
+        while (targetElement.firstChild) {
+          targetElement.removeChild(targetElement.firstChild);
+        }
+        
+        while (doc.body.firstChild) {
+          targetElement.appendChild(doc.body.firstChild);
+        }
+      }
+    })
+  } catch (e) {
+    console.error(e);
   }
 }
 

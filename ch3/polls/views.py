@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render
+from django.http import HttpResponseRedirect
 from .models import PracTable
 from .forms import PracTableForm
 
@@ -32,8 +33,10 @@ def create(request):
         form = PracTableForm(request.POST)
         if form.is_valid():
             PracTable = form.save(commit=False)
+            logger = logging.getLogger(__name__)
+            logger.debug(PracTable.__dict__)
             PracTable.save()
-            return redirect("index")
+            return HttpResponseRedirect("polls/create")
     else:
         form = PracTableForm()
     return render(request, "polls/create.html", tag_data)

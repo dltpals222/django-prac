@@ -15,7 +15,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-      <form action="{% url 'create' %}" method="post" id="addInfoForm" >
+      <form action="{% url 'index' %}" method="post" id="addInfoForm" >
         {% csrf_token %}
         <div class="modal-body">                
           <!--* 입력값 -->
