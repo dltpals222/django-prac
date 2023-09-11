@@ -15,7 +15,8 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-      <form action="/api/userInfo" method="post" id="addInfoForm" >
+      <form action="{% url 'create' %}" method="post" id="addInfoForm" >
+        {% csrf_token %}
         <div class="modal-body">                
           <!--* 입력값 -->
           <div class="flex-center flex-direction-column">
@@ -48,7 +49,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
-          <button onclick="submitUserInfo()" class="btn btn-primary">회원 정보에 추가하기</button>
+          <button type="submit" class="btn btn-primary">회원 정보에 추가하기</button>
         </div>
       </form>
       </div>

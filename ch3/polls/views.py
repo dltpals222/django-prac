@@ -1,5 +1,6 @@
-from django.shortcuts import render
-from polls.models import pracTable
+from django.shortcuts import render, redirect
+from .models import PracTable
+from .forms import PracTableForm
 
 # Create your views here.
 
@@ -27,6 +28,14 @@ def userManagement(request):
 
 
 def create(request):
+    if request.method == "POST":
+        form = PracTableForm(request.POST)
+        if form.is_valid():
+            PracTable = form.save(commit=False)
+            PracTable.save()
+            return redirect("index")
+    else:
+        form = PracTableForm()
     return render(request, "polls/create.html", tag_data)
 
 

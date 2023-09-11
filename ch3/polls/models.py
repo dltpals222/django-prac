@@ -9,7 +9,7 @@ def validate_positive(value):
         raise ValidationError("0이하는 입력되지 않습니다.")
 
 
-class pracTable(models.Model):
+class PracTable(models.Model):
     name = models.CharField(max_length=100, null=False)
     number = models.IntegerField(null=False)
     nickname = models.CharField(max_length=100, null=False)
