@@ -1,6 +1,7 @@
 from django import forms
 from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
+from django.urls import reverse
 from .models import mytable
 from .forms import MytableForm
 
@@ -42,7 +43,7 @@ def create(request):
             for i in formset:
                 if i.is_valid() and i.has_changed():
                     instance = i.save()
-            return HttpResponseRedirect("polls/create")
+            return HttpResponseRedirect(reverse("polls:index"))
     else:
         formset = MytableFormSet()
 

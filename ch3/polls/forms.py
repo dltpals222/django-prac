@@ -3,16 +3,25 @@ from .models import mytable
 
 
 class MytableForm(forms.ModelForm):
+    name = forms.CharField(
+        max_length=100, widget=forms.TextInput(attrs={"class": "width-15percent"})
+    )
+    number = forms.IntegerField(
+        widget=forms.NumberInput(attrs={"class": "width-10percent"})
+    )
+    nickname = forms.CharField(
+        max_length=100, widget=forms.TextInput(attrs={"class": "width-20percent"})
+    )
+    deposit = forms.IntegerField(
+        widget=forms.NumberInput(attrs={"class": "width-35percent"})
+    )
+    score = forms.IntegerField(
+        widget=forms.NumberInput(attrs={"class": "width-20percent"})
+    )
+
     class Meta:
         model = mytable
         fields = ["name", "number", "nickname", "deposit", "score"]
-        widgets = {
-            "name": forms.TextInput(attrs={"class": "width-15percent"}),
-            "number": forms.TextInput(attrs={"class": "width-10percent"}),
-            "nickname": forms.TextInput(attrs={"class": "width-20percent"}),
-            "deposit": forms.TextInput(attrs={"class": "width-35percent"}),
-            "score": forms.TextInput(attrs={"class": "width-20percent"}),
-        }
 
     def clean(self):
         cleaned_data = super().clean()
