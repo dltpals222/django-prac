@@ -32,7 +32,7 @@
                 </div>
                 
                 {% for sub_form in formset %}
-              <div class="flex-center">
+              <div id="crtn-input-{{forloop.counter0}}" class="flex-center">
                   {% for field in sub_form %}
                     {{ field }}
                   {% endfor %}
