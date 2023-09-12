@@ -21,25 +21,23 @@
           <!--* 입력값 -->
           <div class="flex-center flex-direction-column">
             <div class="flex-center crtn-tagName" style="width: 100%;">
-              <!-- Render the label for each field in the sub-form -->
               {% for ulList in ulList %}
-                  {% if forloop.counter0 > 1 %}
-                  <div class="flex-center flex-direction-column {% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}">
-                    {{ ulList.1 }}
-                  </div>
-                  {% endif %}
-                  {% endfor %}
-                </div>
-                
-                {% for sub_form in formset %}
+                {% if forloop.counter0 > 1 %}
+                  <div class="flex-center flex-direction-column {% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}">{{ulList.1}}</div>
+                {% endif %}
+              {% endfor %}
+            </div> <!-- class="crtn-tagName" 끝부분 -->
+            {% for list in list %}
               <div class="flex-center">
-                  {% for field in sub_form %}
-                    {{ field }}
-                  {% endfor %}
-                </div>
-                {% endfor %}
-            </div>
-      
+                <input type="text" name="{{sub_form.name.html_name}}" id="{{sub_form.name.id_for_label}}" class="width-15percent">
+                <input type="number" name="{{sub_form.number.html_name}}" id="{{sub_form.number.id_for_label}}" class="width-10percent">
+                <input type="text" name="{{sub_form.nickname.html_name}}" id="{{sub_form.nickname.id_for_label}}" class="width-20percent">
+                <input type="number" name="{{sub_form.deposit.html_name}}" id="{{sub_form.deposit.id_for_label}}" class="width-35percent">
+                <input type="number" name="{{sub_form.score.html_name}}" id="{{sub_form.score.id_for_label}}" class="width-20percent">
+              </div>
+              {% endfor %}
+          </div>
+
           {{formset.management_form}}
         </div>
         <div class="modal-footer">
