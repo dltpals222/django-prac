@@ -23,20 +23,20 @@
             <div class="flex-center crtn-tagName" style="width: 100%;">
               <!-- Render the label for each field in the sub-form -->
               {% for ulList in ulList %}
-                  {% if forloop.counter0 > 1 %}
+                {% if forloop.counter0 > 1 %}
                   <div class="flex-center flex-direction-column {% if ulList.0 == 'name' %}width-15percent {% elif ulList.0 == 'number' %}width-10percent {% elif ulList.0 == 'deposit' %}width-35percent {% else %}width-20percent {% endif %}">
                     {{ ulList.1 }}
                   </div>
-                  {% endif %}
-                  {% endfor %}
+                {% endif %}
+              {% endfor %}
                 </div>
                 
                 {% for sub_form in formset %}
               <div id="crtn-input-{{forloop.counter0}}" class="flex-center">
-                  {% for field in sub_form %}
-                    {{ field }}
-                  {% endfor %}
-                </div>
+                {% for field in sub_form %}
+                  {{ field }}
+                {% endfor %}
+              </div>
                 {% endfor %}
             </div>
       
