@@ -1,5 +1,5 @@
 from django import forms
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .models import mytable
@@ -29,8 +29,10 @@ for i in range(10):
     tag_data["list"].append(i)
 
 
-def userManagement(request):
-    return render(request, "polls/userManagement.html", tag_data)
+def userManagement(request, pk):
+    instance = get_object_or_404(mytable, pk=pk)
+    context = {**tag_data, "read": instance}
+    return render(request, "polls/userManagement.html", context)
 
 
 MytableFormSet = forms.formset_factory(MytableForm, extra=10)
