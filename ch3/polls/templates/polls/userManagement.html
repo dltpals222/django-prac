@@ -49,14 +49,14 @@
         <div class="flex-center">{{ulList.1}}</div>
         
         <ul class="ul-list-style-type" style="margin: 0">
-          {% for read in read %} 
+          {% for read in reads %} 
           {% if ulList.0 == 'checkbox' %}
           <li class="flex-center">
-            <input type="checkbox" name="noList" id="cb-{{ forloop.counter0 }}" value="{{ forloop.counter0 }}" />
+            <input type="checkbox" name="noList" id="cb-{{ forloop.counter0 }}" value="{{ read.id }}" />
           </li>
 
           {% elif ulList.0 == 'no' %}
-          <li>{{read}}</li>
+          <li>{{read.id}}</li>
 
           {% elif ulList.0 == 'name' %}
           <li>{{forloop.counter0}}{{ulList.0}}</li>

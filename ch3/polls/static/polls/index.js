@@ -33,14 +33,8 @@ async function fetchModule(endPoint, insertPageId, contentType = "text/html") {
 document.addEventListener("DOMContentLoaded", () => {
   const umInfo = document.getElementById("um-info");
   umInfo.addEventListener("click", async () => {
-    const checkedValues = Array.from(document.querySelectorAll("input[type=checkbox]:checked")).map(
-      (checkbox) => checkbox.value
-    );
-
-    if(checkedValues.length > 0) {
-      //* 정보
-      await fetchModule(`/polls/userInfo/${checkedValues[0]}`, "user-info");
-    }
+    //* 정보
+    await fetchModule(`/polls/userInfo/`, "user-info");
 
     // // * 유저정보 입력
     // await fetchModule("/polls/create", "create-div");

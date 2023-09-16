@@ -1,5 +1,5 @@
 from django import forms
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
 from .models import mytable
@@ -29,9 +29,10 @@ for i in range(10):
     tag_data["list"].append(i)
 
 
-def userManagement(request, pk):
-    instance = get_object_or_404(mytable, pk=pk)
-    context = {**tag_data, "read": instance}
+def userManagement(request):
+    reads = mytable.objects.all()
+    print("reads값 : " + reads)
+    context = {**tag_data, "reads": reads}
     return render(request, "polls/userManagement.html", context)
 
 
@@ -45,6 +46,7 @@ def create(request):
             for i in formset:
                 if i.is_valid() and i.has_changed():
                     instance = i.save()
+                    print("저장된 id 값은 : " + instance.id)
             return HttpResponseRedirect(reverse("polls:index"))
     else:
         formset = MytableFormSet()
