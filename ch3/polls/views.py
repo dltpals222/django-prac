@@ -31,7 +31,7 @@ for i in range(10):
 
 def userManagement(request):
     reads = mytable.objects.all()
-    print("reads값 : " + reads)
+    print(f"reads값의 갯수 : {reads.count()}")
     context = {**tag_data, "reads": reads}
     return render(request, "polls/userManagement.html", context)
 
