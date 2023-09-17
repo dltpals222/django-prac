@@ -28,7 +28,7 @@ $(document).on('submit', '#create-add', function(e) {
                 $("#create-modal").modal("hide");
             },
             error: function(xhr, errmsg, err) {
-                alert("Error: " + errmsg);
+                alert("에러 발생 : " + errmsg);
                 $('#create-add').html(xhr.responseText);
             }
         });
