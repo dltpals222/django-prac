@@ -46,7 +46,7 @@ def create(request):
             for i in formset:
                 if i.is_valid() and i.has_changed():
                     instance = i.save()
-                    print("저장된 id 값은 : " + instance.id)
+                    print("저장된 id 값은 : ", instance.id)
             return HttpResponseRedirect(reverse("polls:index"))
     else:
         formset = MytableFormSet()
